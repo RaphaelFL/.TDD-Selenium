@@ -1,14 +1,10 @@
 ﻿
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
-using System.IO;
-using System.Reflection;
-using Xunit;
+
+using AluraByteBank.WebApp.Test.Util;
 
 namespace Alura.ByteBank.WebApp.Testes
 {
-    public class NavegandoNaPaginaHome 
+    public class NavegandoNaPaginaHome : IClassFixture<Fixture>
     {
         private readonly IWebDriver driver;
 

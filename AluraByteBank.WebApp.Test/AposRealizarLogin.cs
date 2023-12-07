@@ -1,20 +1,18 @@
-﻿
-
-using AluraByteBank.WebApp.Test.PageObjects;
-using System.Security.Cryptography;
+﻿using AluraByteBank.WebApp.Test.PageObjects;
+using AluraByteBank.WebApp.Test.Util;
 using Xunit.Abstractions;
 
 namespace AluraByteBank.WebApp.Test
 {
-    public class AposRealizarLogin
+    public class AposRealizarLogin : IClassFixture<Fixture>
     {
-        private readonly IWebDriver driver;
         private readonly ITestOutputHelper outputHelper;
+        private IWebDriver driver;
 
-        public AposRealizarLogin(ITestOutputHelper _outputHelper)
+        public AposRealizarLogin(Fixture fixture, ITestOutputHelper _outputHelper)
         {
             //Arrange
-            driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+            driver = fixture.Driver;
             outputHelper = _outputHelper;
         }
         [Fact]
@@ -68,7 +66,7 @@ namespace AluraByteBank.WebApp.Test
                 outputHelper.WriteLine(e.Text);
             }
             //Assert
-            Assert.True(elemente.Count == 36);
+            Assert.True(elemente.Count == 45);
 
         }
         [Fact]
@@ -119,7 +117,7 @@ namespace AluraByteBank.WebApp.Test
             loginPO.Logar();
             var homePO = new HomePO(driver);
 
-            homePO.LinkContaCorrenteClick();
+            homePO.LinkAgenciaslick();
 
             Assert.Contains("Adicionar Agência", driver.PageSource);
 

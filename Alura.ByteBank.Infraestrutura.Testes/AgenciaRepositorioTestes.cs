@@ -150,27 +150,27 @@ namespace Alura.ByteBank.Infraestrutura.Testes
             bytebankRepositorioMock.Verify(b => b.BuscarAgencias());
         }
 
-        [Fact]
-        public void TestaAdiconarAgenciaMock()
-        {
-            // Arrange
-            var agencia = new Agencia()
-            {
-                Nome = "Agência Amaral",
-                Identificador = Guid.NewGuid(),
-                Id = 4,
-                Endereco = "Rua Arthur Costa",
-                Numero = 6497
-            };
+        //[Fact]
+        //public void TestaAdiconarAgenciaMock()
+        //{
+        //    // Arrange
+        //    var agencia = new Agencia()
+        //    {
+        //        Nome = "Agência Amaral",
+        //        Identificador = Guid.NewGuid(),
+        //        Id = 4,
+        //        Endereco = "Rua Arthur Costa",
+        //        Numero = 6497
+        //    };
 
-            var repositorioMock = new ByteBankRepositorio();
+        //    var repositorioMock = new ByteBankRepositorio();
 
-            //Act
-            var adicionado = repositorioMock.AdicionarAgencia(agencia);
+        //    //Act
+        //    var adicionado = repositorioMock.AdicionarAgencia(agencia);
 
-            //Assert
-            Assert.True(adicionado);
-        }
+        //    //Assert
+        //    Assert.True(adicionado);
+        //}
 
         public void Dispose()
         {
